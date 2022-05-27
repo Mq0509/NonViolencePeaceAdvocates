@@ -89,4 +89,5 @@ Xinqing Lin: Drew team flag and coded Card.java and Deck.java.
 --------------------------------------------------------------
 May Qiu :: Completed proposal.
 Jeffery Tang :: Completed proposal.
+Xinqing Lin :: Added get methods + toString to Card.java.
 ==============================================================
