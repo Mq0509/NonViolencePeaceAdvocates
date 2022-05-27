@@ -51,13 +51,13 @@ tales of wisdom gained...
 
 
 
- ______   ______   __   __   __       ______   _______     
-/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\    
-\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__  
- \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\ 
-  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/ 
-   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \ 
-    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/ 
+ ______   ______   __   __   __       ______   _______
+/_____/\ /_____/\ /_/\ /_/\ /_/\     /_____/\ /______/\
+\:::_ \ \\::::_\/_\:\ \\ \ \\:\ \    \:::_ \ \\::::__\/__
+ \:\ \ \ \\:\/___/\\:\ \\ \ \\:\ \    \:\ \ \ \\:\ /____/\
+  \:\ \ \ \\::___\/_\:\_/.:\ \\:\ \____\:\ \ \ \\:\\_  _\/
+   \:\/.:| |\:\____/\\ ..::/ / \:\/___/\\:\_\ \ \\:\_\ \ \
+    \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
 
 
@@ -70,10 +70,23 @@ yyyy-mm-dd
 
 2022-05-25 12:30 PM
 --------------------------------------------------------------
-May Qiu :: invited other members as collaborators, updated README.md to include TNPG, roster, project description, and launch instructions
+May Qiu :: invited other members as collaborators, updated README.md to include TNPG, roster, project description, and launch instructions.
 ==============================================================
 
 2022-05-25 11:23 PM
 --------------------------------------------------------------
-Jeffery Tang :: Created devlog, updated project description and launch instructions in README.md
+Jeffery Tang :: Created devlog, updated project description and launch instructions in README.md.
+==============================================================
+
+2022-05-26 12:30 PM
+--------------------------------------------------------------
+May Qiu :: Created v0--created java files and coded Card.java and Deck.java. Started proposal and
+shared Google Doc with teammates.
+Xinqing Lin: Drew team flag and coded Card.java and Deck.java.
+==============================================================
+
+2022-05-26 10:40 PM
+--------------------------------------------------------------
+May Qiu :: Completed proposal.
+Jeffery Tang :: Completed proposal.
 ==============================================================
