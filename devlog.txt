@@ -91,3 +91,15 @@ May Qiu :: Completed proposal.
 Jeffery Tang :: Completed proposal.
 Xinqing Lin :: Added get methods + toString to Card.java.
 ==============================================================
+
+2022-05-27 12:30 PM
+--------------------------------------------------------------
+May Qiu :: Added more methods to Deck and created Table.java.
+Jeffery Tang :: Added more methods to Deck and created Table.java.
+Xinqing Lin :: Added more methods to Deck and created Table.java + started on UML diagrams.
+==============================================================
+
+2022-05-28 11:00 PM
+--------------------------------------------------------------
+Jeffery Tang :: Updated gitignore to "value-added" version.
+==============================================================
