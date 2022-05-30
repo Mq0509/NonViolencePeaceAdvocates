@@ -49,7 +49,7 @@ public class Card{
     return numberOrSpecialty;
   }
 
-   {
+  public String toString() {
     return getColor() + " " + getNumberOrSpecialty();
   }
 }
