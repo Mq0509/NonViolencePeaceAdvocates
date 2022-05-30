@@ -103,3 +103,10 @@ Xinqing Lin :: Added more methods to Deck and created Table.java + started on UM
 --------------------------------------------------------------
 Jeffery Tang :: Updated gitignore to "value-added" version.
 ==============================================================
+
+2022-05-29 10:00 PM
+--------------------------------------------------------------
+May Qiu :: Added to main method of Woo.java (start menu)
+Jeffery Tang :: Worked on UML Diagrams
+Xinqing Lin :: Worked on UML Diagrams
+==============================================================
