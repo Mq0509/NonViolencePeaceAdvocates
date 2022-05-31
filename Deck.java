@@ -1,7 +1,10 @@
 import java.util.ArrayList;
+import java.util.Stack;
+
 public class Deck {
   private ArrayList<Card> collection;
   private Card top;
+  private Stack<Card> shuffled = new Stack<Card>();
   public Deck(){
     collection = new ArrayList<Card>();
     for(int i = 0; i < 4; i++){ //adding color cards + special cards numbered from 1 thru 9
@@ -19,9 +22,19 @@ public class Deck {
         collection.add(new Card(5,j));
         collection.add(new Card(5,j));
     }
+    shuffle();
+    for (int i = 0 ; i < collection.size() ; i++) {
+      shuffled.push(collection.get(i));
+    }
   }
-  public Deck(ArrayList asdf) {
-    collection = asdf;
+  public Deck(Stack<Card> asdf) {
+    while (!asdf.empty()) {
+      collection.add(asdf.pop());
+    }
+    shuffle();
+    for (int i = 0 ; i < collection.size() ; i++) {
+      shuffled.push(collection.get(i));
+    }
   }
 
   public void swap(int card1, int card2) {
@@ -37,7 +50,7 @@ public class Deck {
   }
 
   public Card draw() {
-      collection.remove();
+      return collection.remove(collection.size() - 1);
   }
 
   public int getSize() {

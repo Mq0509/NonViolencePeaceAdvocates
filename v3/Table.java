@@ -1,24 +1,25 @@
-public class Table() {
-  private ArrayList<Card> placed = new ArrayList<Card>();
-  private Deck aDeck = new Deck();
+import java.util.ArrayList;
+import java.util.Stack;
 
+public class Table {
+  private Stack<Card> placed = new Stack<Card>();
+  private Deck aDeck = new Deck();
+  private int direction = 0;
+  private Player current;
+  private Player winner;
+
+  public Table (Player p1, Player p2, Player p3, Player p4) {
+
+  }
   public void addCard(Card used) {
-    placed.add(used);
+    placed.push(used);
   }
   public Card placeFirst() {
-    placed.add(aDeck.draw());
-    return placed[0];
+    placed.push(aDeck.draw());
+    return placed.peek();
   }
 
-  public ArrayList<Card> getPlaced() {
+  public Stack<Card> getPlaced() {
     return placed;
-  }
-
-  public Card refill() {
-    if (aDeck.getSize() == 0) {
-      for(int i = 0; i < placed.size(); i++){
-        aDeck
-      }
-    }
   }
 }
