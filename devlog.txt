@@ -118,3 +118,10 @@ Jeffery Tang :: Added methods to Player.java / Table.java / Deck.java in accorda
 Xinqing Lin :: Added methods to Player.java / Table.java / Deck.java in accordance with UML diagrams
                Added test cases to Card.java and Deck.java
 ==============================================================
+
+2022-05-31 10:25 PM
+--------------------------------------------------------------
+May Qiu :: Added placeCard, go, and play methods
+Jeffery Tang :: Added placeCard, go, and play methods
+Xinqing Lin :: Completed flowchart
+==============================================================
