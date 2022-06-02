@@ -28,6 +28,7 @@ public class Deck {
       shuffled.push(collection.get(i));
     }
   }
+
   public Deck(Stack<Card> asdf) { //making a new deck from used Cards
     while (!asdf.empty()) {
       collection.add(asdf.pop());
@@ -59,7 +60,7 @@ public class Deck {
   }
 
   public Card removeFromDeck() {
-      return shuffled.pop();
+    return shuffled.pop();
   }
 
   public String toString() {

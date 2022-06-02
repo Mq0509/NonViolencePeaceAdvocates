@@ -10,9 +10,9 @@ public class Woo{
       input = input.toLowerCase();
       System.out.println("\033[H\033[2J");
       if(input.equals("1") || input.equals("start game")){
-        //PLAY;
-        System.out.println("PLAY");
-        System.out.println("\033[H\033[2J");
+        // System.out.println("PLAY");
+        // System.out.println("\033[H\033[2J");
+        play();
       }
       else if(input.equals("2") || input.equals("how to play")){
         System.out.println("The " + red + "OBJECTIVE" + reset + " is to clear all of your cards.");
@@ -40,18 +40,36 @@ public class Woo{
         System.out.print("\033[H\033[2J");
       }
   }
+
   public static void play(){
-    Scanner nameejfd = new Scanner(System.in);
+    Scanner sc = new Scanner(System.in);
     System.out.println("¿Cual es tu nombre?");
-    String name = nameejfd.next();
+    String name = sc.nextLine();
     Player p1 = new Human(name);
     Player p2 = new Bot("Kenny");
     Player p3 = new Bot("Rachel");
     Player p4 = new Bot("Bob The Builder");
-    Table hehehaha = new Table(p1,p2,p3,p4);
-    hehehaha.placeFirst();
-    hehehaha.go();
+    Table newGame = new Table(p1,p2,p3,p4);
+    newGame.placeFirst();
+    newGame.distribute();
+
+    // System.out.println(p1);            Making sure distribute works <3
+    // System.out.println("--\n");
+    //
+    // System.out.println(p2);
+    // System.out.println("--\n");
+    //
+    // System.out.println(p3);
+    // System.out.println("--\n");
+    //
+    // System.out.println(p4);
+    // System.out.println("--\n");
+    //
+    // System.out.println("Topmost card: " + newGame.getTop());
+
+    newGame.go();
   }
+
   public static void main(String[] args) {
     startMenu();
   }

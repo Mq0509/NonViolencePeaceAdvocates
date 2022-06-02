@@ -7,8 +7,10 @@ public class Table {
   private Deck aDeck = new Deck();
   private int direction = 0;
   private Player current;
+  private Card top;
 
   public Table (Player p1, Player p2, Player p3, Player p4) {
+
     p1.setNext(p2);
     p2.setNext(p3);
     p3.setNext(p4);
@@ -21,40 +23,53 @@ public class Table {
   }
 
   public void go(){
-    Scanner whatCard = new Scanner(System.in);
-    System.out.println("Type the index of the card you wish to place");
-    int placingCard = whatCard.nextInt();
-    if(current.validateChoice(placingCard, placed.peek()) == true){
+    System.out.println("\nTopmost Card : " + top + "\n");
+
+    System.out.println(current);
+    int placingCard = current.go(top);
+
+    if (placingCard == current.getHandSize()) {
+      current.draw(aDeck.removeFromDeck());
+      current.draw(aDeck.removeFromDeck());
+      System.out.println(current + " drew two cards\n--\n");
+      go();
+    }
+    else if(current.validateChoice(placingCard, top) == true){
       placeCard(placingCard);
-      goNext();
+      processCard();
       go();
     }
     else{
-      System.out.println("pick a correct card or else you will be punched by the extremely non violent peace advocates");
+      System.out.println("Pick a valid card or else you will be punched by the extremely non violent peace advocates");
       go();
     }
   }
 
   public Card placeFirst() {
     placed.push(aDeck.removeFromDeck());
-    return placed.peek();
+    top = placed.peek();
+    return top;
   }
 
   public Stack<Card> getPlaced() {
     return placed;
   }
+
   // public void endGame(){
   //   if (current.wonOrNot() == true){
   //     System.out.println(current.getName() + "has won the game");
   //     System.out.println("\033[H\033[2J");
   //   }
   // }
+
   public void placeCard(int chosen) {
     placed.push(current.removeCard(chosen));
+    top = placed.peek();
   }
 
-  public void goNext(){
-    if((placed.peek()).getNumberOrSpecialty().equals("Reverse")){
+  public void processCard(){
+    System.out.println(current.getName() + " placed a " + top + "\n--");
+    if (top.getNumberOrSpecialty().equals("Reverse")){
       if(direction == 1){
         direction = 0;
       }
@@ -63,20 +78,43 @@ public class Table {
       }
       current = current.nextInLine(direction);
     }
-    if((placed.peek()).getNumberOrSpecialty().equals("Skip")){
+    else if (top.getNumberOrSpecialty().equals("Skip")){
       current = current.nextInLine(direction).nextInLine(direction);
     }
-    if((placed.peek()).getNumberOrSpecialty().equals("+2")) {
+    else if (top.getNumberOrSpecialty().equals("+2")) {
       current.nextInLine(direction).draw(aDeck.removeFromDeck());
       current.nextInLine(direction).draw(aDeck.removeFromDeck());
+      current = current.nextInLine(direction);
     }
+    else if (top.getNumberOrSpecialty().equals("+4")) {
+      current.nextInLine(direction).draw(aDeck.removeFromDeck());
+      current.nextInLine(direction).draw(aDeck.removeFromDeck());
+      current.nextInLine(direction).draw(aDeck.removeFromDeck());
+      current.nextInLine(direction).draw(aDeck.removeFromDeck());
+
+      current.setSecondary(top);
+      current = current.nextInLine(direction);
+    }
+    else if (top.getColor().equals("Wild")) {
+      current.setSecondary(top);
+      current = current.nextInLine(direction);
+    }
+    else {
+      current = current.nextInLine(direction);
+    }
+
   }
+
   public void distribute() {
     for(int x = 0 ; x < 4 ; x++) {
       for (int l = 0 ; l < 7 ; l++) {
         current.draw(aDeck.removeFromDeck());
       }
-      current = current.getNext();
+      current = current.nextInLine(direction);
     }
+  }
+
+  public Card getTop() {
+    return top;
   }
 }

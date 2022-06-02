@@ -1,6 +1,7 @@
 public class Card{
   private int _color;
   private int _numberOrSpecialty;
+  private int _secondary; // FOR WILD CARDS
   public Card(int color, int numberOrSpecialty){
     _color = color;
     _numberOrSpecialty = numberOrSpecialty;
@@ -38,7 +39,7 @@ public class Card{
       numberOrSpecialty = "Reverse";
     }
     else if (_numberOrSpecialty == 12) {
-      numberOrSpecialty = "Cancel";
+      numberOrSpecialty = "Skip";
     }
     else if (_numberOrSpecialty == 13) {
       numberOrSpecialty = "Regular";
@@ -47,6 +48,30 @@ public class Card{
       numberOrSpecialty = "+4";
     }
     return numberOrSpecialty;
+  }
+
+  public void setSecondary(int chosen) { // FOR WHEN PLAYERS CHOOSE A WILD CARD
+    _secondary = chosen;
+  }
+
+  public String getSecondary() {
+    String color = "";
+    if (_secondary == 1) {
+      color = "Red";
+    }
+    else if (_secondary == 2) {
+      color = "Green";
+    }
+    else if (_secondary == 3) {
+      color = "Yellow";
+    }
+    else if (_secondary == 4) {
+      color = "Blue";
+    }
+    else {
+      color = "Wild";
+    }
+    return color;
   }
 
   public String toString() {

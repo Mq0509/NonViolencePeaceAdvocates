@@ -60,14 +60,6 @@ tales of wisdom gained...
     \____/_/ \_____\/ \___/_(   \_____\/ \_____\/ \_____\/
 ==============================================================
 
-
-yyyy-mm-dd
---------------------------------------------------------------
-<Member> :: <Thing member did.>
-<Member> :: <Thing member did.>
-<Member> :: <Thing member did.>
-==============================================================
-
 2022-05-25 12:30 PM
 --------------------------------------------------------------
 May Qiu :: invited other members as collaborators, updated README.md to include TNPG, roster, project description, and launch instructions.
@@ -75,7 +67,7 @@ May Qiu :: invited other members as collaborators, updated README.md to include 
 
 2022-05-25 11:23 PM
 --------------------------------------------------------------
-Jeffery Tang :: Created devlog, updated project description and launch instructions in README.md.
+Jeffery Tang :: Created devlog.txt, updated project description and launch instructions in README.md.
 ==============================================================
 
 2022-05-26 12:30 PM
@@ -124,4 +116,16 @@ Xinqing Lin :: Added methods to Player.java / Table.java / Deck.java in accordan
 May Qiu :: Added placeCard, go, and play methods
 Jeffery Tang :: Added placeCard, go, and play methods
 Xinqing Lin :: Completed flowchart
+==============================================================
+
+2022-06-01 10:18 PM
+--------------------------------------------------------------
+May Qiu :: Added methods to Woo.java and added necessary functionality to other methods to make Woo.java work
+Jeffery Tang :: Added methods to Woo.java and added necessary functionality to other methods to make Woo.java work
+Xinqing Lin :: Added methods to Woo.java and added necessary functionality to other methods to make Woo.java work
+==============================================================
+
+2022-06-01 10:18 PM
+--------------------------------------------------------------
+Xinqing Lin :: Fixed distribute(), added wild card color functionality, finished processCard(), fixed taking turn functionality
 ==============================================================
