@@ -38,4 +38,38 @@ public class Human extends Player {
     return placingCard;
   }
 
+  public void uno(){
+
+    Scanner sc = new Scanner(System.in);
+    if(getHandSize() == 1){
+      long time = System.currentTimeMillis();
+      System.out.println("You have one card");
+      String input = sc.next();
+      long secondTime = System.currentTimeMillis();
+      time = secondTime - time;
+      if(time <= 3000 && (input.equals("UNO") || input.equals("uno"))){
+        System.out.println(":)");
+      }
+      else{
+        System.out.println("You did not type UNO fast enough. You take another card.");
+        draw(aDeck.removeFromDeck());
+      }
+    }
+    else if (getHandSize() == 0) {
+      long time = System.currentTimeMillis();
+      System.out.println("You don't have any cards left");
+      String input = sc.next();
+      long secondTime = System.currentTimeMillis();
+      time = secondTime - time;
+      if(time <= 5000 && (input.equals("UNO-OUT") || input.equals("uno-out"))){
+        System.out.println("YOU WON! AHHHHHHHHHHHHHHHHH");
+        won = true;
+      }
+      else{
+        System.out.println("... You were so close, but you didn't type UNO-OUT. You take another card.");
+        draw(aDeck.removeFromDeck());
+      }
+    }
+  }
+
 }

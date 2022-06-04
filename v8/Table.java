@@ -9,6 +9,12 @@ public class Table {
   private Player current;
   private Card top;
 
+  private static final String RESET = "\033[0m";
+  private static final String RED = "\u001B[31m";
+  private static final String GREEN = "\u001B[32m";
+  private static final String YELLOW = "\033[0;33m";
+  private static final String BLUE = "\u001B[34m";
+
   public Table (Player p1, Player p2, Player p3, Player p4) {
 
     p1.setNext(p2);
@@ -38,6 +44,7 @@ public class Table {
     else if(current.validateChoice(placingCard, top) == true){
       placeCard(placingCard);
       processCard();
+      if (curr
       go();
     }
     else{
@@ -70,6 +77,10 @@ public class Table {
 
   public void processCard(){
     System.out.println(current.getName() + " placed a " + top + "\n--");
+    current.uno();
+    if (current.wonOrNot()) {
+      return;
+    }
     if (top.getNumberOrSpecialty().equals("Reverse")){
       if(direction == 1){
         direction = 0;
@@ -98,15 +109,13 @@ public class Table {
       current.setSecondary(top);
       current = current.nextInLine(direction);
     }
-    else if (top.getColor().equals("Wild")) {
+    else if (top.isWild()) {
       current.setSecondary(top);
       current = current.nextInLine(direction);
     }
     else {
       current = current.nextInLine(direction);
     }
-
-    Uno();
 
   }
 
@@ -118,25 +127,7 @@ public class Table {
       current = current.nextInLine(direction);
     }
   }
-//quntaquinte
-public void Uno(){
 
-  Scanner uNoOuT = new Scanner(System.in);
-  if(current.getHandSize() == 1){
-    long time = System.currentTimeMillis();
-    System.out.println("You have one card");
-    String dhed = uNoOuT.next();
-    long secondTime = System.currentTimeMillis();
-    time = secondTime - time;
-    if(time <= 3000 && (dhed.equals("UNO") || dhed.equals("uno"))){
-      System.out.println("You now have 1 card");
-    }
-    else{
-      System.out.println("You did not type UNO fast enough. You took a card loser.");
-      current.draw(aDeck.removeFromDeck());
-    }
-  }
-}
   public Card getTop() {
     return top;
   }

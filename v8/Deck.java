@@ -33,7 +33,7 @@ public class Deck {
     Card top = asdf.pop();
     while (!asdf.empty()) {
       Card toberemoved = asdf.pop();
-      toberemoved.setSecondary(-1);
+      toberemoved.setSecondary(-392);
       collection.add(toberemoved);
     }
     shuffle();

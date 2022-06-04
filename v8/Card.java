@@ -1,37 +1,51 @@
 public class Card{
+  private static final String RESET = "\033[0m";
+  private static final String RED = "\u001B[31m";
+  private static final String GREEN = "\u001B[32m";
+  private static final String YELLOW = "\033[0;33m";
+  private static final String BLUE = "\u001B[34m";
+
+
   private int _color;
   private int _numberOrSpecialty;
   private int _secondary; // FOR WILD CARDS
   public Card(int color, int numberOrSpecialty){
     _color = color;
     _numberOrSpecialty = numberOrSpecialty;
-    _secondary = 0;
+    _secondary = 325392;
   }
 
   public String getColor() {
     String color = "";
     if (_color == 1) {
-      color = "Red";
+      color = RED + "Red" + RESET;
     }
     else if (_color == 2) {
-      color = "Green";
+      color = GREEN + "Green" + RESET;
     }
     else if (_color == 3) {
-      color = "Yellow";
+      color = YELLOW + "Yellow" + RESET;
     }
     else if (_color == 4) {
-      color = "Blue";
+      color = BLUE + "Blue" + RESET;
     }
     else {
-      color = "Wild";
+      color = RED + "W" + BLUE + "I" + YELLOW + "L" + GREEN + "D" + RESET;
     }
     return color;
+  }
+
+  public boolean isWild() {
+    if (_color == 5) {
+      return true;
+    }
+    return false;
   }
 
   public String getNumberOrSpecialty() {
     String numberOrSpecialty = "";
     if (_numberOrSpecialty >= 0 && _numberOrSpecialty <= 9) {
-      numberOrSpecialty += _numberOrSpecialty;
+      numberOrSpecialty = "" + _numberOrSpecialty;
     }
     else if (_numberOrSpecialty == 10) {
       numberOrSpecialty = "+2";
@@ -42,11 +56,11 @@ public class Card{
     else if (_numberOrSpecialty == 12) {
       numberOrSpecialty = "Skip";
     }
-    else if (_numberOrSpecialty == 13) {
+    else if (_numberOrSpecialty == 13 ) {
       numberOrSpecialty = "Regular";
     }
     else {
-      numberOrSpecialty = "+4";
+      numberOrSpecialty = "+4"; //_numberOrSpecialty = 14
     }
     return numberOrSpecialty;
   }
@@ -58,23 +72,23 @@ public class Card{
   public String getSecondary() {
     String color = "";
     if (_secondary == 1) {
-      color = "Red";
+      color = RED + "Red" + RESET;
     }
     else if (_secondary == 2) {
-      color = "Green";
+      color = GREEN + "Green" + RESET;
     }
     else if (_secondary == 3) {
-      color = "Yellow";
+      color = YELLOW + "Yellow" + RESET;
     }
     else if (_secondary == 4) {
-      color = "Blue";
+      color = BLUE + "Blue" + RESET;
     }
     return color;
   }
 
   public String toString() {
     String ret = getColor() + " " + getNumberOrSpecialty();
-    if (getColor().equals("Wild")) {
+    if (isWild()) {
       ret += " " + getSecondary();
     }
     return ret;
@@ -87,5 +101,9 @@ public class Card{
     System.out.println(am);
     Card hungry = new Card(5, 14);
     System.out.println(hungry);
+
+    Card scared = new Card(5,13);
+    System.out.println(scared);
+
   }
 }

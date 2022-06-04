@@ -6,7 +6,7 @@ public class Player {
   Player prevPlayer;
   ArrayList<Card> hand;
   String _name;
-  boolean isOut;
+  boolean won;
 
   public Player(String name){
     _name = name;
@@ -55,7 +55,7 @@ public class Player {
     if (boopyboop.getColor().equals(top.getColor())
     || boopyboop.getNumberOrSpecialty().equals(top.getNumberOrSpecialty())
     || boopyboop.getColor().equals(top.getSecondary())
-    || boopyboop.getColor().equals("Wild")) {
+    || boopyboop.isWild()) {
       return true;
     }
     return false;
@@ -86,20 +86,19 @@ public class Player {
   }
 
   public void setSecondary(Card wild) {
-    wild.setSecondary(1);
+
   }
 
   public int go(Card top) {
-    for (int i = 1; i < hand.size(); i++) {
-      if (validateChoice(i, top)) {
-        return i;
-      }
-    }
-    return getHandSize();
+    return -392;
   }
 
   public int getHandSize() {
     return hand.size();
+  }
+
+  public void uno() {
+
   }
 
   public static void main(String[] args) {
