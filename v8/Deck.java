@@ -33,7 +33,8 @@ public class Deck {
     Card top = asdf.pop();
     while (!asdf.empty()) {
       Card toberemoved = asdf.pop();
-      toberemoved.setSecondary(-392);
+      toberemoved.setSecondary(0);
+      System.out.println("REPLENISHED: " + toberemoved);
       collection.add(toberemoved);
     }
     shuffle();
@@ -72,18 +73,11 @@ public class Deck {
   }
 
   public static void main(String[] args) {
-    Deck softwaredevelopment = new Deck();
-    System.out.println(softwaredevelopment);
-
-    System.out.println("\nShuffling Again");
-    softwaredevelopment.shuffle();
-    softwaredevelopment.putCardsDown();
-    System.out.println(softwaredevelopment);
-
-    System.out.println("\nSwapping the first and second card");
-    softwaredevelopment.swap(0, 1);
-    softwaredevelopment.putCardsDown();
-    System.out.println(softwaredevelopment);
+    Card wild = new Card(5, 14);
+    wild.setSecondary(3);
+    System.out.println(wild);
+    wild.setSecondary(0);
+    System.out.println(wild);
 
   }
 }

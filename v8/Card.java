@@ -30,6 +30,7 @@ public class Card{
       color = BLUE + "Blue" + RESET;
     }
     else {
+      _color = 5;
       color = RED + "W" + BLUE + "I" + YELLOW + "L" + GREEN + "D" + RESET;
     }
     return color;
@@ -95,12 +96,6 @@ public class Card{
   }
 
   public static void main(String[] args) {
-    Card i = new Card(1, 4);
-    System.out.println(i);
-    Card am = new Card(1, 12);
-    System.out.println(am);
-    Card hungry = new Card(5, 14);
-    System.out.println(hungry);
 
     Card scared = new Card(5,13);
     System.out.println(scared);

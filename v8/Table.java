@@ -44,7 +44,9 @@ public class Table {
     else if(current.validateChoice(placingCard, top) == true){
       placeCard(placingCard);
       processCard();
-      if (curr
+      if (current.wonOrNot()) {
+        return;
+      }
       go();
     }
     else{
@@ -77,7 +79,7 @@ public class Table {
 
   public void processCard(){
     System.out.println(current.getName() + " placed a " + top + "\n--");
-    current.uno();
+    current.uno(aDeck);
     if (current.wonOrNot()) {
       return;
     }

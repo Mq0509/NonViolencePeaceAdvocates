@@ -38,7 +38,7 @@ public class Human extends Player {
     return placingCard;
   }
 
-  public void uno(){
+  public void uno(Deck aDeck){
 
     Scanner sc = new Scanner(System.in);
     if(getHandSize() == 1){
@@ -58,7 +58,7 @@ public class Human extends Player {
     else if (getHandSize() == 0) {
       long time = System.currentTimeMillis();
       System.out.println("You don't have any cards left");
-      String input = sc.next();
+      String input = sc.nextLine();
       long secondTime = System.currentTimeMillis();
       time = secondTime - time;
       if(time <= 5000 && (input.equals("UNO-OUT") || input.equals("uno-out"))){

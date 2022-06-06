@@ -4,26 +4,29 @@ public class Bot extends Player{
   }
 
   public void setSecondary(Card wild) {
-      wild.setSecondary(239);
+      wild.setSecondary(1);
   }
 
   public int go(Card top) {
     for (int i = 1; i < hand.size(); i++) {
       if (validateChoice(i, top)) {
+        if (hand.get(i).isWild() == true) {
+          setSecondary(hand.get(i));
+        }
         return i;
       }
     }
     return getHandSize();
   }
 
-  public void uno() {
+  public void uno(Deck aDeck) {
     if (getHandSize() == 1) {
       int succeed = (int)(Math.random() * 2);
       if (succeed == 0) {
         System.out.println(getName() + " succeeded in calling out UNO on time!");
       }
       else {
-        System.out.println(getName() " failed in calling out UNO on time. They draw another card.");
+        System.out.println(getName() + " failed in calling out UNO on time. They draw another card.");
       }
     }
     else if (getHandSize() == 0) {

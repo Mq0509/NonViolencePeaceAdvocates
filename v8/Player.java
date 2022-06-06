@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class Player {
 
-  Player nextPlayer;
-  Player prevPlayer;
-  ArrayList<Card> hand;
-  String _name;
-  boolean won;
+  protected Player nextPlayer;
+  protected Player prevPlayer;
+  protected ArrayList<Card> hand;
+  protected String _name;
+  protected boolean won;
 
   public Player(String name){
     _name = name;
@@ -97,7 +97,11 @@ public class Player {
     return hand.size();
   }
 
-  public void uno() {
+  public void uno(Deck aDeck) {
+
+  }
+
+  public void unoOut(Deck aDeck) {
 
   }
 
