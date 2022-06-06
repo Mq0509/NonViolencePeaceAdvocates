@@ -41,4 +41,8 @@ public class Bot extends Player{
     }
   }
 
+  public Card respondToAdding(Card top) {
+    return null;
+  }
+
 }

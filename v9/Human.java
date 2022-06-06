@@ -72,4 +72,18 @@ public class Human extends Player {
     }
   }
 
+  public int respondToAdding(Card top) {
+    System.out.println("Do you want to stack on another +2 or +4 card?");
+    System.out.println(current);
+    Scanner whatCard = new Scanner(System.in);
+    int index = whatCard.nextInt();
+    if (current.validateTwo(index, top)) {
+      immakingthiscomplicatedandmayiswatchingme = true;
+      return index;
+    }
+    return false;
+  }
+
+  public
+
 }

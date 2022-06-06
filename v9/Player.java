@@ -7,6 +7,7 @@ public class Player {
   protected ArrayList<Card> hand;
   protected String _name;
   protected boolean won;
+  protected boolean immakingthiscomplicatedandmayiswatchingme;
 
   public Player(String name){
     _name = name;
@@ -61,6 +62,21 @@ public class Player {
     return false;
   }
 
+  public boolean validateTwo(int chosen, Card top) {
+    if(chosen.getNumberOrSpecialty().equals("+4"){ //if chosen is +4 it can always be played
+      return true;
+    }
+    if(chosen.getNumberOrSpecialty().equals("+2")){
+      if(top.getNumberOrSpecialty().equals("+2")){
+        return true;
+      }
+      else if(top.isWild() && top.getColor().equals(chosen.getColor())){
+        return true;
+      }
+    }
+    return false;
+  }
+
   public boolean wonOrNot(){
     if(hand.size() == 0){
       return true;
@@ -103,6 +119,10 @@ public class Player {
 
   public void unoOut(Deck aDeck) {
 
+  }
+
+  public int respondToAdding(Card top) {
+    return -1;
   }
 
   public static void main(String[] args) {

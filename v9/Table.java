@@ -8,6 +8,8 @@ public class Table {
   private int direction = 0;
   private Player current;
   private Card top;
+  private boolean stack = false;
+  private int mayissmall = 0;
 
   private static final String RESET = "\033[0m";
   private static final String RED = "\u001B[31m";
@@ -30,28 +32,36 @@ public class Table {
 
   public void go(){
     System.out.println("\nTopmost Card : " + top + "\n");
-
     System.out.println(current);
-    int placingCard = current.go(top);
 
-    if (placingCard == current.getHandSize()) {
-      current.draw(aDeck.removeFromDeck());
-      current.draw(aDeck.removeFromDeck());
-      System.out.println(current + " drew two cards\n--\n");
-      current = current.nextInLine(direction);
-      go();
-    }
-    else if(current.validateChoice(placingCard, top) == true){
-      placeCard(placingCard);
-      processCard();
-      if (current.wonOrNot()) {
-        return;
+    if (stack == true) {
+      if (current.respondToAdding(top)) {
+        placeCard(placingCard);
       }
-      go();
     }
-    else{
-      System.out.println("Pick a valid card or else you will be punched by the extremely non violent peace advocates");
-      go();
+
+    else {
+      int placingCard = current.go(top);
+
+      if (placingCard == current.getHandSize()) {
+        current.draw(aDeck.removeFromDeck());
+        current.draw(aDeck.removeFromDeck());
+        System.out.println(current + " drew two cards\n--\n");
+        current = current.nextInLine(direction);
+        go();
+      }
+      else if(current.validateChoice(placingCard, top) == true){
+        placeCard(placingCard);
+        processCard();
+        if (current.wonOrNot()) {
+          return;
+        }
+        go();
+      }
+      else{
+        System.out.println("Pick a valid card or else you will be punched by the extremely non violent peace advocates");
+        go();
+      }
     }
   }
 
@@ -77,13 +87,21 @@ public class Table {
     top = placed.peek();
   }
 
+  public void imlosingithelp() {
+
+  }
+
   public void processCard(){
     System.out.println(current.getName() + " placed a " + top + "\n--");
     current.uno(aDeck);
     if (current.wonOrNot()) {
       return;
     }
-    if (top.getNumberOrSpecialty().equals("Reverse")){
+    if (stack == true) {
+      //reminder to myself to put something here porque soy estupida y quiero morir y jeffery tiene un novio gay
+    }
+
+    else if (top.getNumberOrSpecialty().equals("Reverse")){
       if(direction == 1){
         direction = 0;
       }
@@ -97,8 +115,8 @@ public class Table {
     }
     else if (top.getNumberOrSpecialty().equals("+2")) {
       aDeck.replenish(placed);
-      current.nextInLine(direction).draw(aDeck.removeFromDeck());
-      current.nextInLine(direction).draw(aDeck.removeFromDeck());
+      stack == true;
+      current.respondToAdding(top);
       current = current.nextInLine(direction);
     }
     else if (top.getNumberOrSpecialty().equals("+4")) {
@@ -119,6 +137,12 @@ public class Table {
       current = current.nextInLine(direction);
     }
 
+  }
+
+  public void drawCurrent(int num){
+    for(int i = 0; i < num; i++){
+      current.draw(aDeck.removeFromDeck());
+    }
   }
 
   public void distribute() {
