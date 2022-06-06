@@ -38,6 +38,16 @@ public class Human extends Player {
     return placingCard;
   }
 
+  public int respondToAdding(Card top) {
+    Scanner whatCard = new Scanner(System.in);
+    System.out.println("\u001B[35m" + "Choose a card to stack on, or draw cards" + "\u001B[0m"); //purple + msg + reset
+    int index = whatCard.nextInt();
+    if (validateTwo(index, top)) {
+      return index;
+    }
+    return -1;
+  }
+
   public void uno(Deck aDeck){
 
     Scanner sc = new Scanner(System.in);
@@ -71,19 +81,5 @@ public class Human extends Player {
       }
     }
   }
-
-  public int respondToAdding(Card top) {
-    System.out.println("Do you want to stack on another +2 or +4 card?");
-    System.out.println(current);
-    Scanner whatCard = new Scanner(System.in);
-    int index = whatCard.nextInt();
-    if (current.validateTwo(index, top)) {
-      immakingthiscomplicatedandmayiswatchingme = true;
-      return index;
-    }
-    return false;
-  }
-
-  public
 
 }

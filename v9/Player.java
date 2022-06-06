@@ -7,7 +7,6 @@ public class Player {
   protected ArrayList<Card> hand;
   protected String _name;
   protected boolean won;
-  protected boolean immakingthiscomplicatedandmayiswatchingme;
 
   public Player(String name){
     _name = name;
@@ -63,14 +62,20 @@ public class Player {
   }
 
   public boolean validateTwo(int chosen, Card top) {
-    if(chosen.getNumberOrSpecialty().equals("+4"){ //if chosen is +4 it can always be played
+    if (chosen == hand.size()) {
+      return false; // no cards to place
+    }
+
+    Card boopyboop = hand.get(chosen);
+
+    if(boopyboop.getNumberOrSpecialty().equals("+4")){ //if chosen is +4 it can always be played
       return true;
     }
-    if(chosen.getNumberOrSpecialty().equals("+2")){
+    else if(boopyboop.getNumberOrSpecialty().equals("+2")){
       if(top.getNumberOrSpecialty().equals("+2")){
-        return true;
+        return true; //if both chosen and top are +2, valid
       }
-      else if(top.isWild() && top.getColor().equals(chosen.getColor())){
+      else if(top.isWild() && top.getSecondary().equals(boopyboop.getColor())){ //if secondary of top same color as chosen
         return true;
       }
     }
@@ -97,7 +102,7 @@ public class Player {
     for (int i = 0; i < hand.size(); i++) {
       ret += "" + i + ". " + hand.get(i) + "\n";
     }
-    ret += hand.size() + ". No cards to place. Draw 2 cards.";
+    ret += hand.size() + ". No cards to place. Draw.";
     return ret;
   }
 
