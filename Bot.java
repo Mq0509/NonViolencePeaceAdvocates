@@ -41,4 +41,9 @@ public class Bot extends Player{
     }
   }
 
+  public int respondToAdding(Card top) {
+    System.out.println(getName() + " decided to not continue the stack");
+    return -1;
+  }
+
 }
