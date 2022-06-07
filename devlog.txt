@@ -72,9 +72,9 @@ Jeffery Tang :: Created devlog.txt, updated project description and launch instr
 
 2022-05-26 12:30 PM
 --------------------------------------------------------------
-May Qiu :: Created v0--created java files and coded Card.java and Deck.java. Started proposal and
-shared Google Doc with teammates.
-Xinqing Lin: Drew team flag and coded Card.java and Deck.java.
+May Qiu :: Created v0--created java files and helped write Card.java and Deck.java. Started proposal and
+           shared Google Doc with teammates.
+Xinqing Lin: Drew team flag and helped write Card.java and Deck.java.
 ==============================================================
 
 2022-05-26 10:40 PM
@@ -86,9 +86,9 @@ Xinqing Lin :: Added get methods + toString to Card.java.
 
 2022-05-27 12:30 PM
 --------------------------------------------------------------
-May Qiu :: Added more methods to Deck and created Table.java.
-Jeffery Tang :: Added more methods to Deck and created Table.java.
-Xinqing Lin :: Added more methods to Deck and created Table.java + started on UML diagrams.
+May Qiu :: Added more methods to Deck / discussed how Deck should work and created Table.java.
+Jeffery Tang :: Added more methods to Deck / discussed how Deck should work and created Table.java.
+Xinqing Lin :: Added more methods to Deck / discussed how Deck should work and created Table.java + started on UML diagrams.
 ==============================================================
 
 2022-05-28 11:00 PM
@@ -98,23 +98,23 @@ Jeffery Tang :: Updated gitignore to "value-added" version.
 
 2022-05-29 10:00 PM
 --------------------------------------------------------------
-May Qiu :: Added to main method of Woo.java (start menu)
+May Qiu :: Added a start menu to Woo.java
 Jeffery Tang :: Worked on UML Diagrams
 Xinqing Lin :: Worked on UML Diagrams
 ==============================================================
 
 2022-05-31 12:30 PM
 --------------------------------------------------------------
-May Qiu :: Added methods to Player.java / Table.java / Deck.java in accordance with UML diagrams
-Jeffery Tang :: Added methods to Player.java / Table.java / Deck.java in accordance with UML diagrams
-Xinqing Lin :: Added methods to Player.java / Table.java / Deck.java in accordance with UML diagrams
-               Added test cases to Card.java and Deck.java
+May Qiu :: Started on a go method, wrote constructor for Table
+Jeffery Tang :: Started on a go method, wrote constructor for Table
+Xinqing Lin :: Started on a go method, wrote constructor for Table
+               Added test cases
 ==============================================================
 
 2022-05-31 10:25 PM
 --------------------------------------------------------------
-May Qiu :: Added placeCard, go, and play methods
-Jeffery Tang :: Added placeCard, go, and play methods
+May Qiu :: Added placeCard, continued writing go, and play methods
+Jeffery Tang :: Added placeCard, continued writing go, and play methods
 Xinqing Lin :: Completed flowchart
 ==============================================================
 
@@ -127,5 +127,43 @@ Xinqing Lin :: Added methods to Woo.java and added necessary functionality to ot
 
 2022-06-01 10:18 PM
 --------------------------------------------------------------
-Xinqing Lin :: Fixed distribute(), added wild card color functionality, finished processCard(), fixed taking turn functionality
+Xinqing Lin :: Fixed distribute(), added wild card color to Card.java + setting wild card color to Player.java,
+               finished processCard(), finished turn taking functionality
+==============================================================
+
+2022-06-02 12:30 PM
+--------------------------------------------------------------
+May Qiu :: Started code for hitting UNO and fixed the method for validating a player's card choice
+Jeffery Tang :: Started code for hitting UNO and fixed the method for validating a player's card choice
+Xinqing Lin :: Started code for hitting UNO and fixed the method for validating a player's card choice + Updated README.md
+==============================================================
+
+2022-06-03 12:30 PM
+--------------------------------------------------------------
+May Qiu :: Continued code for hitting UNO
+Jeffery Tang :: Continued code for hitting UNO
+Xinqing Lin :: Continued code for hitting UNO
+==============================================================
+
+2022-06-03 7:00 PM
+--------------------------------------------------------------
+Xinqing Lin :: Finished UNO + UNO-OUT functionality, added ANSI colors, fixed Wild card code
+==============================================================
+
+2022-06-05 9:00 PM
+--------------------------------------------------------------
+May Qiu :: Created menu page in processing
+==============================================================
+
+2022-06-06 12:30 PM
+--------------------------------------------------------------
+May Qiu :: Started code for stacking +2s and +4s
+Jeffery Tang :: Started code for stacking +2s and +4s
+Xinqing Lin :: Fixed the replenishing method for Wild cards
+               Started code for stacking +2s and +4s
+==============================================================
+
+2022-06-06 8:00 PM
+--------------------------------------------------------------
+Xinqing Lin :: Continued code for stacking +2s and +4s + added more text colors
 ==============================================================
