@@ -34,7 +34,7 @@ public class Deck {
     while (!asdf.empty()) {
       Card toberemoved = asdf.pop();
       toberemoved.setSecondary(0);
-      System.out.println("REPLENISHED: " + toberemoved);
+      //System.out.println("REPLENISHED: " + toberemoved);
       collection.add(toberemoved);
     }
     shuffle();

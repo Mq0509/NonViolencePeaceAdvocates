@@ -17,7 +17,7 @@ public class Table {
   private static final String YELLOW = "\033[0;33m";
   private static final String BLUE = "\u001B[34m";
 
-  public static final String PURPLE = "\u001B[35m";
+  public static final String PURPLE = "\u001b[35;1m";
   public static final String CYAN = "\u001B[36m";
 
 
@@ -35,8 +35,10 @@ public class Table {
   }
 
   public void go(){
-    System.out.println("\nTopmost Card : " + top + "\n");
-    System.out.println(current);    //cards player has
+    if (current.isHuman()) {
+      System.out.println("\nTopmost Card : " + top + "\n");
+      System.out.println(current);    //cards player has
+    }
 
     if (isStacking == true) { // first check if we're in stacking... 'mode'
       int placingCard = current.respondToAdding(top);
@@ -51,8 +53,8 @@ public class Table {
           stack_size += 4;
         }
         System.out.println("Current stack size : " + stack_size);
-
         current = current.nextInLine(direction);
+        //System.out.println("\033[H\033[2J");
         go();
       }
       else {
@@ -62,7 +64,8 @@ public class Table {
         aDeck.replenish(placed);
         drawCurrent(stack_size);
         stack_size = 0;
-        current = current.nextInLine(direction);
+        //current = current.nextInLine(direction);
+        //System.out.println("\033[H\033[2J");
         go();
       }
     }
@@ -73,8 +76,9 @@ public class Table {
       if (placingCard == current.getHandSize()) { //no cards available to choose
         current.draw(aDeck.removeFromDeck());
         current.draw(aDeck.removeFromDeck());
-        System.out.println(current.getName() + " decided to draw two cards\n--\n");
+        System.out.println(current.getName() + " decided to draw two cards\n----------------------------------------------\n");
         current = current.nextInLine(direction);
+        //System.out.println("\033[H\033[2J");
         go();
       }
       else if(current.validateChoice(placingCard, top) == true){
@@ -83,11 +87,14 @@ public class Table {
         if (current.wonOrNot()) {
           return;
         }
+        //System.out.println("\033[H\033[2J");
         go();
       }
       else{
         System.out.println("Pick a valid card or else you will be punched by the extremely non violent peace advocates");
+        //System.out.println("\033[H\033[2J");
         go();
+
       }
     }
   }
@@ -115,7 +122,7 @@ public class Table {
   }
 
   public void processCard(){
-    System.out.println(current.getName() + " placed a " + top + "\n--");
+    System.out.println(current.getName() + " placed a " + top + "\n----------------------------------------------");
     current.uno(aDeck);
     if (current.wonOrNot()) {
       return;
