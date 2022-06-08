@@ -185,4 +185,5 @@ Xinqing Lin :: Updated propro.pdf and got started on fixing flowchart.pdf
 2022-06-08 1:30 PM
 --------------------------------------------------------------
 Xinqing Lin :: Fixed flowchart.pdf
+               Change Bot.java so that they choose the secondary of wild cards based off their hand
 ==============================================================
