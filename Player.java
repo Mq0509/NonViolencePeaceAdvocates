@@ -17,6 +17,10 @@ public class Player {
     _name = name;
   }
 
+  public boolean isHuman() {
+    return false;
+  }
+
   public String getName(){
     return _name;
   }

@@ -174,3 +174,10 @@ May Qiu :: Changed Table.java to only show the cards of the human player
 Jeffery Tang :: Changed Table.java to only show the cards of the human player
 Xinqing Lin :: Changed Table.java to only show the cards of the human player
 ==============================================================
+
+2022-06-08 12:30 PM
+--------------------------------------------------------------
+May Qiu :: 
+Jeffery Tang ::
+Xinqing Lin ::
+==============================================================
