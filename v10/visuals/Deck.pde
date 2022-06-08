@@ -71,7 +71,11 @@
 //    return shuffled.toString();
 //  }
 
+<<<<<<< HEAD
 //  public static void main(String[] args) {
+=======
+//  public void main(String[] args) {
+>>>>>>> 4529b9e3601ba3e9eaf56a0ef56e217695b34b2a
 //    Deck softwaredevelopment = new Deck();
 //    print(softwaredevelopment);
 

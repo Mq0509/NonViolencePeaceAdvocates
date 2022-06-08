@@ -102,10 +102,13 @@ public class Table {
   public Card placeFirst() {
     placed.push(aDeck.removeFromDeck());
     top = placed.peek();
+<<<<<<< HEAD
     if (top.isWild()) {
       int random = (int)(Math.random() * 4 + 1);
       top.setSecondary(random);
     }
+=======
+>>>>>>> 4529b9e3601ba3e9eaf56a0ef56e217695b34b2a
     return top;
   }
 
