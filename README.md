@@ -12,7 +12,7 @@ take turns placing cards that are either of the same color or the same type
 (i.e. reverse, skip). If there are no valid cards to play, the player will
 draw 1 card. Otherwise, the name of the game is to put down all cards.
 
-Of course, say UNO when you're down to 1 card and UNOOUT when you're down to 2.
+Of course, say UNO when you're down to 1 card and UNO-OUT when you're down to 2.
 
 *How-to-Launch Instructions:*
 1. Clone this repo.
