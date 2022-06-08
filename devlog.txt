@@ -167,3 +167,10 @@ Xinqing Lin :: Fixed the replenishing method for Wild cards
 --------------------------------------------------------------
 Xinqing Lin :: Continued code for stacking +2s and +4s + added more text colors
 ==============================================================
+
+2022-06-07 12:30 PM
+--------------------------------------------------------------
+May Qiu :: Changed Table.java to only show the cards of the human player
+Jeffery Tang :: Changed Table.java to only show the cards of the human player
+Xinqing Lin :: Changed Table.java to only show the cards of the human player
+==============================================================
