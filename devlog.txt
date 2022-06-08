@@ -177,7 +177,7 @@ Xinqing Lin :: Changed Table.java to only show the cards of the human player
 
 2022-06-08 12:30 PM
 --------------------------------------------------------------
-May Qiu :: 
-Jeffery Tang ::
-Xinqing Lin ::
+May Qiu :: Did tutorial page for processing
+Jeffery Tang :: Did tutorial page for processing
+Xinqing Lin :: Updated propro.pdf
 ==============================================================
