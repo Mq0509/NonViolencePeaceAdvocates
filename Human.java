@@ -6,6 +6,10 @@ public class Human extends Player {
     super(name);
   }
 
+  public boolean isHuman() {
+    return true;
+  }
+
   @Override
   public void setSecondary(Card wild) {
     Scanner sc = new Scanner(System.in);
