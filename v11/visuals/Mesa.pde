@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 import java.util.Scanner;
 
-public class Table {
+public class Mesa {
   private Stack<Card> placed = new Stack<Card>();
   private Deck aDeck = new Deck();
   private int direction = 0;
@@ -21,7 +21,7 @@ public class Table {
   public static final String CYAN = "\u001B[36m";
 
 
-  public Table (Player p1, Player p2, Player p3, Player p4) {
+  public Mesa (Player p1, Player p2, Player p3, Player p4) {
 
     p1.setNext(p2);
     p2.setNext(p3);
@@ -102,13 +102,10 @@ public class Table {
   public Card placeFirst() {
     placed.push(aDeck.removeFromDeck());
     top = placed.peek();
-<<<<<<< HEAD
     if (top.isWild()) {
       int random = (int)(Math.random() * 4 + 1);
       top.setSecondary(random);
     }
-=======
->>>>>>> 4529b9e3601ba3e9eaf56a0ef56e217695b34b2a
     return top;
   }
 

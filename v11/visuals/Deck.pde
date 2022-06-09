@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Stack;
 
-public class Deck {
+class Deck {
   private ArrayList<Card> collection;
   private Card top;
   private Stack<Card> shuffled;
@@ -72,12 +72,12 @@ public class Deck {
     return shuffled.toString();
   }
 
-  public static void main(String[] args) {
-    Card wild = new Card(5, 14);
-    wild.setSecondary(3);
-    System.out.println(wild);
-    wild.setSecondary(0);
-    System.out.println(wild);
+  //public static void main(String[] args) {
+  //  Card wild = new Card(5, 14);
+  //  wild.setSecondary(3);
+  //  System.out.println(wild);
+  //  wild.setSecondary(0);
+  //  System.out.println(wild);
 
-  }
+  //}
 }

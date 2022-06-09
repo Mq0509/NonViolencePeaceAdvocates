@@ -1,4 +1,5 @@
-public class Bot extends Player{
+class Bot extends Player{
+  
   public Bot(String name) {
     super(name);
   }
@@ -20,15 +21,15 @@ public class Bot extends Player{
         }
       }
       int max = 0;
-      int color = 0;
+      int colore = 0;
       for (int i = 0; i < colors.length; i++) {
         if (colors[i] > max) {
           max = colors[i];
-          color = i;
+          colore = i;
         }
       }
 
-      wild.setSecondary(color);
+      wild.setSecondary(colore);
   }
 
   public int go(Card top) {
@@ -70,21 +71,20 @@ public class Bot extends Player{
     return -1;
   }
 
-  public static void main(String[] args) {
-    Bot jesse = new Bot("jesse");
-    jesse.hand.add(new Card(1, 4));
-    jesse.hand.add(new Card(2, 7));
-    jesse.hand.add(new Card(2, 9));
-    jesse.hand.add(new Card(3, 2));
-    jesse.hand.add(new Card(3, 3));
-    jesse.hand.add(new Card(3, 0));
+  //public static void main(String[] args) {
+  //  Bot jesse = new Bot("jesse");
+  //  jesse.hand.add(new Card(1, 4));
+  //  jesse.hand.add(new Card(2, 7));
+  //  jesse.hand.add(new Card(2, 9));
+  //  jesse.hand.add(new Card(3, 2));
+  //  jesse.hand.add(new Card(3, 3));
+  //  jesse.hand.add(new Card(3, 0));
 
-    Card wild = new Card(5, 14);
+  //  Card wild = new Card(5, 14);
 
-    System.out.println(wild);
-    jesse.setSecondary(wild);
-    System.out.println(wild);
+//  //  System.out.println(wild);
+//  //  jesse.setSecondary(wild);
+//  //  System.out.println(wild);
 
-  }
-
+//  //}
 }
