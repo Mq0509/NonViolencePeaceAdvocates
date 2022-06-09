@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 import java.util.Scanner;
 
-public class Mesa {
+public class Table {
   private Stack<Card> placed = new Stack<Card>();
   private Deck aDeck = new Deck();
   private int direction = 0;
@@ -24,7 +24,7 @@ public class Mesa {
   public int ctr = 0;
 
 
-  public Mesa (Player p1, Player p2, Player p3, Player p4) {
+  public Table (Player p1, Player p2, Player p3, Player p4) {
 
     p1.setNext(p2);
     p2.setNext(p3);
@@ -38,8 +38,8 @@ public class Mesa {
   }
 
   public void go(){
+    System.out.println("Topmost Card : " + top + "\n");
     if (current.isHuman()) {
-      System.out.println("\nTopmost Card : " + top + "\n");
       System.out.println(current);    //cards player has
     }
 
@@ -48,8 +48,8 @@ public class Mesa {
     // }
     // ctr++;
 
-    System.out.println(current.getName() + ": " + current.getHandSize() + "placed size: " + placed.size());
-    System.out.println("deck size: " + aDeck.getSize());
+    System.out.println(current.getName() + " has " + current.getHandSize() + " card(s)");
+
     if (isStacking == true) { // first check if we're in stacking... 'mode'
       int placingCard = current.respondToAdding(top);
       if (placingCard != -1) { //if a valid card was chosen
@@ -63,6 +63,7 @@ public class Mesa {
           stack_size += 4;
         }
         System.out.println("Current stack size : " + stack_size);
+        current.uno();
         current = current.nextInLine(direction);
 
         go();
