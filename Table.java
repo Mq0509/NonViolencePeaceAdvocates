@@ -7,6 +7,7 @@ public class Table {
   private Deck aDeck = new Deck();
   private int direction = 0;
   private Player current;
+  private Player winner;
   private Card top;
   private boolean isStacking = false;
   private int stack_size = 0;
@@ -19,6 +20,8 @@ public class Table {
 
   public static final String PURPLE = "\u001b[35;1m";
   public static final String CYAN = "\u001B[36m";
+
+  public int ctr = 0;
 
 
   public Table (Player p1, Player p2, Player p3, Player p4) {
@@ -40,6 +43,13 @@ public class Table {
       System.out.println(current);    //cards player has
     }
 
+    // if (ctr == 10) {             //for testing purposes porque idkidkdikdikdifdididididodsh
+    //   return;
+    // }
+    // ctr++;
+
+    System.out.println(current.getName() + ": " + current.getHandSize() + "placed size: " + placed.size());
+    System.out.println("deck size: " + aDeck.getSize());
     if (isStacking == true) { // first check if we're in stacking... 'mode'
       int placingCard = current.respondToAdding(top);
       if (placingCard != -1) { //if a valid card was chosen
@@ -54,7 +64,7 @@ public class Table {
         }
         System.out.println("Current stack size : " + stack_size);
         current = current.nextInLine(direction);
-        //System.out.println("\033[H\033[2J");
+
         go();
       }
       else {
@@ -65,7 +75,6 @@ public class Table {
         drawCurrent(stack_size);
         stack_size = 0;
         //current = current.nextInLine(direction);
-        //System.out.println("\033[H\033[2J");
         go();
       }
     }
@@ -74,11 +83,11 @@ public class Table {
       int placingCard = current.go(top); //player chooses a card
 
       if (placingCard == current.getHandSize()) { //no cards available to choose
+        aDeck.replenish(placed);
         current.draw(aDeck.removeFromDeck());
         current.draw(aDeck.removeFromDeck());
         System.out.println(current.getName() + " decided to draw two cards\n----------------------------------------------\n");
         current = current.nextInLine(direction);
-        //System.out.println("\033[H\033[2J");
         go();
       }
       else if(current.validateChoice(placingCard, top) == true){
@@ -87,12 +96,10 @@ public class Table {
         if (current.wonOrNot()) {
           return;
         }
-        //System.out.println("\033[H\033[2J");
         go();
       }
       else{
         System.out.println("Pick a valid card or else you will be punched by the extremely non violent peace advocates");
-        //System.out.println("\033[H\033[2J");
         go();
 
       }
@@ -113,13 +120,6 @@ public class Table {
     return placed;
   }
 
-  // public void endGame(){
-  //   if (current.wonOrNot() == true){
-  //     System.out.println(current.getName() + "has won the game");
-  //     System.out.println("\033[H\033[2J");
-  //   }
-  // }
-
   public void placeCard(int chosen) {
     placed.push(current.removeCard(chosen));
     top = placed.peek();
@@ -129,6 +129,7 @@ public class Table {
     System.out.println(current.getName() + " placed a " + top + "\n----------------------------------------------");
     current.uno(aDeck);
     if (current.wonOrNot()) {
+      winner = current;
       return;
     }
     else if (top.getNumberOrSpecialty().equals("Reverse")){
@@ -164,7 +165,10 @@ public class Table {
     else {
       current = current.nextInLine(direction);
     }
+  }
 
+  public String getWinner() {
+    return winner.getName();
   }
 
   public void drawCurrent(int num){

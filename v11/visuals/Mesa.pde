@@ -34,7 +34,7 @@ public class Mesa {
     current = p1;
   }
 
-  public void go(){
+  public void go() {
     if (current.isHuman()) {
       System.out.println("\nTopmost Card : " + top + "\n");
       System.out.println(current);    //cards player has
@@ -48,16 +48,14 @@ public class Mesa {
 
         if (top.getNumberOrSpecialty().equals("+2")) {
           stack_size += 2;
-        }
-        else {
+        } else {
           stack_size += 4;
         }
         System.out.println("Current stack size : " + stack_size);
         current = current.nextInLine(direction);
         //System.out.println("\033[H\033[2J");
         go();
-      }
-      else {
+      } else {
         isStacking = false;
 
         System.out.println(CYAN + "The stack ended! " + current.getName() + " must draw " + stack_size + " cards!" + RESET);
@@ -68,9 +66,7 @@ public class Mesa {
         //System.out.println("\033[H\033[2J");
         go();
       }
-    }
-
-    else {
+    } else {
       int placingCard = current.go(top); //player chooses a card
 
       if (placingCard == current.getHandSize()) { //no cards available to choose
@@ -80,8 +76,7 @@ public class Mesa {
         current = current.nextInLine(direction);
         //System.out.println("\033[H\033[2J");
         go();
-      }
-      else if(current.validateChoice(placingCard, top) == true){
+      } else if (current.validateChoice(placingCard, top) == true) {
         placeCard(placingCard);
         processCard();
         if (current.wonOrNot()) {
@@ -89,12 +84,10 @@ public class Mesa {
         }
         //System.out.println("\033[H\033[2J");
         go();
-      }
-      else{
+      } else {
         System.out.println("Pick a valid card or else you will be punched by the extremely non violent peace advocates");
         //System.out.println("\033[H\033[2J");
         go();
-
       }
     }
   }
@@ -125,57 +118,48 @@ public class Mesa {
     top = placed.peek();
   }
 
-  public void processCard(){
+  public void processCard() {
     System.out.println(current.getName() + " placed a " + top + "\n----------------------------------------------");
     current.uno(aDeck);
     if (current.wonOrNot()) {
       return;
-    }
-    else if (top.getNumberOrSpecialty().equals("Reverse")){
-      if(direction == 1){
+    } else if (top.getNumberOrSpecialty().equals("Reverse")) {
+      if (direction == 1) {
         direction = 0;
-      }
-      else{
+      } else {
         direction = 1;
       }
       current = current.nextInLine(direction);
-    }
-    else if (top.getNumberOrSpecialty().equals("Skip")){
+    } else if (top.getNumberOrSpecialty().equals("Skip")) {
       current = current.nextInLine(direction).nextInLine(direction);
-    }
-    else if (top.getNumberOrSpecialty().equals("+2")) {
+    } else if (top.getNumberOrSpecialty().equals("+2")) {
       aDeck.replenish(placed);
       isStacking = true;
       stack_size = 2;
       current = current.nextInLine(direction);
-
-    }
-    else if (top.getNumberOrSpecialty().equals("+4")) {
+    } else if (top.getNumberOrSpecialty().equals("+4")) {
       aDeck.replenish(placed);
       current.setSecondary(top);
       isStacking = true;
       stack_size = 4;
       current = current.nextInLine(direction);
-    }
-    else if (top.isWild()) {
+    } else if (top.isWild()) {
       current.setSecondary(top);
       current = current.nextInLine(direction);
-    }
-    else {
+    } else {
       current = current.nextInLine(direction);
     }
-
   }
 
-  public void drawCurrent(int num){
-    for(int i = 0; i < num; i++){
+  public void drawCurrent(int num) {
+    for (int i = 0; i < num; i++) {
       current.draw(aDeck.removeFromDeck());
     }
   }
 
   public void distribute() {
-    for(int x = 0 ; x < 4 ; x++) {
-      for (int l = 0 ; l < 7 ; l++) {
+    for (int x = 0; x < 4; x++) {
+      for (int l = 0; l < 7; l++) {
         current.draw(aDeck.removeFromDeck());
       }
       current = current.nextInLine(direction);
@@ -185,5 +169,4 @@ public class Mesa {
   public Card getTop() {
     return top;
   }
-
 }

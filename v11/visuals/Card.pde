@@ -1,9 +1,9 @@
-class Card{
+class Card {
 
   private int _color;
   private int _numberOrSpecialty;
   private int _secondary; // FOR WILD CARDS
-  public Card(int colore, int numberOrSpecialty){
+  public Card(int colore, int numberOrSpecialty) {
     _color = colore;
     _numberOrSpecialty = numberOrSpecialty;
     _secondary = 325392;
@@ -13,19 +13,15 @@ class Card{
     String colore = "";
     if (_color == 1) {
       colore = "Red_";
-    }
-    else if (_color == 2) {
+    } else if (_color == 2) {
       colore = "Green_";
-    }
-    else if (_color == 3) {
+    } else if (_color == 3) {
       colore = "Yellow_";
-    }
-    else if (_color == 4) {
+    } else if (_color == 4) {
       colore = "Blue_";
-    }
-    else {
+    } else {
       _color = 5;
-      colore = "Wild";
+      colore = "Wild_";
     }
     return colore;
   }
@@ -41,20 +37,15 @@ class Card{
     String numberOrSpecialty = "";
     if (_numberOrSpecialty >= 0 && _numberOrSpecialty <= 9) {
       numberOrSpecialty = "" + _numberOrSpecialty;
-    }
-    else if (_numberOrSpecialty == 10) {
+    } else if (_numberOrSpecialty == 10) {
       numberOrSpecialty = "Draw";
-    }
-    else if (_numberOrSpecialty == 11) {
+    } else if (_numberOrSpecialty == 11) {
       numberOrSpecialty = "Reverse";
-    }
-    else if (_numberOrSpecialty == 12) {
+    } else if (_numberOrSpecialty == 12) {
       numberOrSpecialty = "Skip";
-    }
-    else if (_numberOrSpecialty == 13 ) {
+    } else if (_numberOrSpecialty == 13 ) {
       numberOrSpecialty = "Regular";
-    }      
-    else {
+    } else {
       numberOrSpecialty = "+4"; //_numberOrSpecialty = 14
     }
     return numberOrSpecialty;
@@ -68,14 +59,11 @@ class Card{
     String colore = "";
     if (_secondary == 1) {
       colore = "Red";
-    }
-    else if (_secondary == 2) {
+    } else if (_secondary == 2) {
       colore = "Green";
-    }
-    else if (_secondary == 3) {
-     colore = "Yellow";
-    }
-    else if (_secondary == 4) {
+    } else if (_secondary == 3) {
+      colore = "Yellow";
+    } else if (_secondary == 4) {
       colore = "Blue";
     }
     return colore;

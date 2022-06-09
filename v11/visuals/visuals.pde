@@ -59,13 +59,13 @@ PImage Red_Reverse;
 PImage Green_Reverse;
 PImage Blue_Reverse;
 PImage Wild_Draw;
-PImage Wild;
+PImage Wild_;
 
-    // System.out.println("Topmost card: " + newGame.getTop());
+// System.out.println("Topmost card: " + newGame.getTop());
 
-  //  newGame.go();
-  //}
-  
+//  newGame.go();
+//}
+
 void setup() {
   size(1200, 900);
   uno = loadImage("starting.png");
@@ -129,7 +129,7 @@ void setup() {
   Green_Reverse = loadImage("Green_Reverse.png");
   Blue_Reverse = loadImage("Blue_Reverse.png");
   Wild_Draw = loadImage("Wild_Draw.png");
-  Wild = loadImage("Wild.png");
+  Wild_ = loadImage("Wild_.png");
 }
 
 void draw() {
@@ -155,10 +155,9 @@ void draw() {
     rect(850, 413, 200, 75);
     fill(10, 0, 0);
     text("QUIT", 900, 465);
-  } 
-  else if (screen == 2) {
+  } else if (screen == 2) {
     textSize(40);
-    text("Cual es tu nombre?",500,450);
+    text("Cual es tu nombre?", 500, 450);
     fill(255);
     rect(width/2 - 250, height/2 - 50, 500, 100);
     fill(0);
@@ -167,8 +166,7 @@ void draw() {
     rect(width/2 - 250, height/2 + 175, 500, 100);
     fill(10, 0, 0);
     text("NEXT", width/2 - 250, height/2 + 175);
-  }
-   else if (screen == 3) {
+  } else if (screen == 3) {
     font = createFont("Karumbi", 128);
     textFont(font);
     image(bboard, 0, 0);
@@ -193,25 +191,24 @@ void draw() {
     fill(10, 0, 0);
     textSize(35);
     text("READY", width/2 -75, 750);
-  }
-  else if(screen == 4){
-      if (ran == false) {
+  } else if (screen == 4) {
+    if (ran == false) {
       Player p1 = new Human(name);
       Player p2 = new Bot("Kenny");
       Player p3 = new Bot("Rachel");
       Player p4 = new Bot("Bob The Builder");
-      Mesa newGame = new Mesa(p1,p2,p3,p4);
+      Mesa newGame = new Mesa(p1, p2, p3, p4);
       newGame.placeFirst();
       newGame.distribute();
       ran = true;
+      newGame.go();
     }
-    
   }
 }
 void keyPressed() {
   if (typing) {
     if (key == BACKSPACE) {
-      name = name.substring(0,name.length()-1);
+      name = name.substring(0, name.length()-1);
     }
     if ((key >= 'a' && key <= 'z') || (key >= 'A' && key <= 'Z')) {
       name += key;
@@ -223,8 +220,7 @@ void mousePressed() {
     if (hoveringButton(width/2 - 125, 750, 250, 75)) {
       screen = 1;
     }
-  } 
-  else if (screen == 1) {
+  } else if (screen == 1) {
     if (hoveringButton(150, 413, 200, 75)) {
       screen = 2;
     }
@@ -234,20 +230,17 @@ void mousePressed() {
     if (hoveringButton(850, 413, 200, 75)) {
       exit();
     }
-  } 
-  else if (screen == 2){
-    if(hoveringButton(width/2 - 250, height/2 - 50, 500, 100)){
+  } else if (screen == 2) {
+    if (hoveringButton(width/2 - 250, height/2 - 50, 500, 100)) {
       typing = true;
-    }
-    else if(hoveringButton(width/2 - 250, height/2 + 175, 500, 100)){
+    } else if (hoveringButton(width/2 - 250, height/2 + 175, 500, 100)) {
       screen = 4;
       typing = false;
     }
     //else{
     //  typing = false;
     //}
-  }
-  else if (screen == 3) {
+  } else if (screen == 3) {
     if (hoveringButton(width/2 - 125, 700, 200, 75)) {
       screen = 2;
     }

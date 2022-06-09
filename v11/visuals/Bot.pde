@@ -1,35 +1,32 @@
-class Bot extends Player{
-  
+class Bot extends Player {
+
   public Bot(String name) {
     super(name);
   }
 
   public void setSecondary(Card wild) {
-      int[] colors = new int[4];
-      for (int i = 0; i < getHandSize(); i++) {
-        if (hand.get(i).getColor().equals("Red")) {
-          colors[0] += 1;
-        }
-        else if (hand.get(i).getColor().equals("Green")){
-          colors[1] += 1;
-        }
-        else if (hand.get(i).getColor().equals("Yellow")){
-          colors[2] += 1;
-        }
-        else {
-          colors[3] += 1;
-        }
+    int[] colors = new int[4];
+    for (int i = 0; i < getHandSize(); i++) {
+      if (hand.get(i).getColor().equals("Red")) {
+        colors[0] += 1;
+      } else if (hand.get(i).getColor().equals("Green")) {
+        colors[1] += 1;
+      } else if (hand.get(i).getColor().equals("Yellow")) {
+        colors[2] += 1;
+      } else {
+        colors[3] += 1;
       }
-      int max = 0;
-      int colore = 0;
-      for (int i = 0; i < colors.length; i++) {
-        if (colors[i] > max) {
-          max = colors[i];
-          colore = i;
-        }
+    }
+    int max = 0;
+    int colore = 0;
+    for (int i = 0; i < colors.length; i++) {
+      if (colors[i] > max) {
+        max = colors[i];
+        colore = i;
       }
+    }
 
-      wild.setSecondary(colore);
+    wild.setSecondary(colore);
   }
 
   public int go(Card top) {
@@ -49,18 +46,15 @@ class Bot extends Player{
       int succeed = (int)(Math.random() * 2);
       if (succeed == 0) {
         System.out.println(getName() + " succeeded in calling out UNO on time!");
-      }
-      else {
+      } else {
         System.out.println(getName() + " failed in calling out UNO on time. They draw another card.");
       }
-    }
-    else if (getHandSize() == 0) {
+    } else if (getHandSize() == 0) {
       int succeed = (int)(Math.random() * 10);
       if (succeed == 0) {
         System.out.println(getName() + " remembered to call out UNO-OUT! They win the game!");
         won = true;
-      }
-      else {
+      } else {
         System.out.println(getName() + " failed to call UNO-OUT! They draw another card.");
       }
     }
@@ -82,9 +76,9 @@ class Bot extends Player{
 
   //  Card wild = new Card(5, 14);
 
-//  //  System.out.println(wild);
-//  //  jesse.setSecondary(wild);
-//  //  System.out.println(wild);
+  //  //  System.out.println(wild);
+  //  //  jesse.setSecondary(wild);
+  //  //  System.out.println(wild);
 
-//  //}
+  //  //}
 }
