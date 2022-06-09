@@ -187,3 +187,10 @@ Xinqing Lin :: Updated propro.pdf and got started on fixing flowchart.pdf
 Xinqing Lin :: Fixed flowchart.pdf
                Change Bot.java so that they choose the secondary of wild cards based off their hand
 ==============================================================
+
+2022-06-09 12:20 AM
+--------------------------------------------------------------
+May Qiu :: Added UNO pngs and added textbox with keyPressed()
+Jeffery Tang :: Added UNO pngs and added textbox with keyPressed()
+Xinqing Lin :: Updated Bot.java to change probability of winning
+==============================================================
