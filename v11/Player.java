@@ -69,7 +69,6 @@ public class Player {
     if (chosen == hand.size()) {
       return false; // no cards to place
     }
-
     Card boopyboop = hand.get(chosen);
 
     if(boopyboop.getNumberOrSpecialty().equals("+4")){ //if chosen is +4 it can always be played

@@ -5,6 +5,10 @@ public class Deck {
   private ArrayList<Card> collection;
   private Card top;
   private Stack<Card> shuffled;
+
+  private static final String RED = "\u001B[31m";
+  private static final String RESET = "\033[0m";
+
   public Deck(){
     collection = new ArrayList<Card>();
     for(int i = 1; i <= 4; i++){ //adding color cards + special cards numbered from 1 thru 9
@@ -13,7 +17,7 @@ public class Deck {
         collection.add(new Card(i,j));
       }
     }
-    for(int i = 0; i < 4; i++){ //adding color cards numbered 0
+    for(int i = 1; i <= 4; i++){ //adding color cards numbered 0
       collection.add(new Card(i,0));
     }
       for(int j = 13; j < 15; j++){ //adding wild cards
@@ -34,7 +38,9 @@ public class Deck {
     while (!asdf.empty()) {
       Card toberemoved = asdf.pop();
       toberemoved.setSecondary(0);
-      //System.out.println("REPLENISHED: " + toberemoved);
+      // if (toberemoved.isWild()) {
+      //   System.out.println(RED + "REPLENISHED: " + toberemoved + RESET);
+      // }
       collection.add(toberemoved);
     }
     shuffle();
@@ -43,6 +49,7 @@ public class Deck {
       shuffled.push(collection.get(i));
     }
     asdf.push(top);
+    System.out.println("what");
   }
 
   public void putCardsDown() {
@@ -65,6 +72,7 @@ public class Deck {
   }
 
   public Card removeFromDeck() {
+    collection.remove(collection.size() - 1);
     return shuffled.pop();
   }
 
@@ -72,12 +80,15 @@ public class Deck {
     return shuffled.toString();
   }
 
+  public int getSize() {
+    return shuffled.size();
+  }
+
   public static void main(String[] args) {
-    Card wild = new Card(5, 14);
-    wild.setSecondary(3);
-    System.out.println(wild);
-    wild.setSecondary(0);
-    System.out.println(wild);
+    Deck aDeck = new Deck();
+    System.out.println(aDeck.collection.size());
+    aDeck.shuffle();
+    System.out.println(aDeck);
 
   }
 }

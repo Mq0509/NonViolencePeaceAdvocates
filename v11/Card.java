@@ -12,7 +12,7 @@ public class Card{
   public Card(int color, int numberOrSpecialty){
     _color = color;
     _numberOrSpecialty = numberOrSpecialty;
-    _secondary = 325392;
+    _secondary = 0;
   }
 
   public String getColor() {
@@ -97,7 +97,7 @@ public class Card{
 
   public static void main(String[] args) {
 
-    Card scared = new Card(5,13);
+    Card scared = new Card(5,0);
     System.out.println(scared);
 
   }

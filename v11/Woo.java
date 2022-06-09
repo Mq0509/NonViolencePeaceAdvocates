@@ -5,16 +5,19 @@ public class Woo{
     String red = "\u001B[31m";
     Scanner hehe = new Scanner(System.in);
       System.out.println("Please Choose an Option:");
-      System.out.println("1. Start Game        2. How to Play        3. Quit        ");
+      System.out.println("1. Start: Reguar Mode      2. Start: Betting Mode        3. How to Play        4. Quit        ");
       String input = hehe.nextLine();
       input = input.toLowerCase();
       System.out.println("\033[H\033[2J");
-      if(input.equals("1") || input.equals("start game")){
+      if(input.equals("1") || input.toLowerCase().equals("start: regular mode")){
         // System.out.println("PLAY");
         // System.out.println("\033[H\033[2J");
         play();
       }
-      else if(input.equals("2") || input.equals("how to play")){
+      else if(input.equals("2") || input.toLowerCase().equals("start : betting mode")) {
+        bet();
+      }
+      else if(input.equals("3") || input.toLowerCase().equals("how to play")){
         System.out.println("The " + red + "OBJECTIVE" + reset + " is to clear all of your cards.");
         System.out.println("Players can put down a card of the same color or number");
         System.out.println("If player does not have any card, they must take one card from the deck");
@@ -68,6 +71,45 @@ public class Woo{
     // System.out.println("Topmost card: " + newGame.getTop());
 
     newGame.go();
+  }
+
+  public static void bet() {
+    System.out.println("The line-up of bots playing today are:   Mykolyk, Konstantinovich, DW, and Brooks");
+    System.out.println("Who do you want to bet on?");
+    System.out.println("1. Mykolyk\n" +
+                       "2. Konstantinovich\n" +
+                       "3. DW\n" +
+                       "4. Brooks\n");
+    Scanner sc = new Scanner(System.in);
+    int aiibet = sc.nextInt();
+    String bet;
+    if (aiibet == 1) {
+      bet = "Mykolyk";
+    }
+    else if (aiibet == 2) {
+      bet = "Konstantinovich";
+    }
+    else if (aiibet == 3) {
+      bet = "DW";
+    }
+    else {
+      bet = "Brooks";
+    }
+
+    Player p1 = new Bot("Mykolyk");
+    Player p2 = new Bot("Konstantinovich");
+    Player p3 = new Bot("DW");
+    Player p4 = new Bot("Brooks");
+    Table newGame = new Table(p1, p2, p3, p4);
+    newGame.placeFirst();
+    newGame.distribute();
+    newGame.go();
+    if (newGame.getWinner().equals(bet)) {
+      System.out.println("You were right! " + bet + " won! ... We don't have anything to offer you :)");
+    }
+    else {
+      System.out.println("You were wrong! " + bet + " lost ... May will now have to slap you :(");
+    }
   }
 
   public static void main(String[] args) {
