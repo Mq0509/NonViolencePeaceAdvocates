@@ -39,8 +39,8 @@ public class Mesa {
 
   public void go(){
     if (current.isHuman()) {
-      text("\nTopmost Card : " + top + "\n", 0, 500);
-      text(current, 0, 500);    //cards player has
+      image(top.getVisual(), 300, 400);
+      //text(current, 0, 500);    //cards player has
     }
 
     // if (ctr == 10) {             //for testing purposes porque idkidkdikdikdifdididididodsh

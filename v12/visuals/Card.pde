@@ -8,6 +8,7 @@ class Card {
     _color = colore;
     _numberOrSpecialty = numberOrSpecialty;
     _secondary = 0;
+    setVisual();
   }
 
   public String getColor() {
@@ -47,7 +48,7 @@ class Card {
     } else if (_numberOrSpecialty == 13 ) {
       numberOrSpecialty = "Regular";
     } else {
-      numberOrSpecialty = "+4"; //_numberOrSpecialty = 14
+      numberOrSpecialty = "Draw"; //_numberOrSpecialty = 14
     }
     return numberOrSpecialty;
   }
@@ -78,8 +79,13 @@ class Card {
     return ret;
   }
   
-  void setVisual(String value){
-    this.visual = loadImage(this.toString()+".png");
+  void setVisual(){
+    this.visual = loadImage(this.toString()+ ".png");
+    this.visual.resize(50,75);
+  }
+  
+  PImage getVisual(){
+    return this.visual;
   }
 
   //public static void main(String[] args) {

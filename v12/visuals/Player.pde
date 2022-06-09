@@ -13,6 +13,12 @@ public class Player {
     hand = new ArrayList<Card>();
   }
 
+  void displayHand(){
+    for(int i = 0; i<hand.size(); i++){
+      image((hand.get(i)).getVisual(),200 + i * (100/(hand.size())), 700);
+    }
+  }
+  
   public void setName(String name){
     _name = name;
   }
