@@ -49,7 +49,7 @@ public class Deck {
       shuffled.push(collection.get(i));
     }
     asdf.push(top);
-    System.out.println("what");
+    //System.out.println("what");
   }
 
   public void putCardsDown() {

@@ -29,7 +29,15 @@ Flesh out each category whenever necessary, appropriate.
 ------------------------------------------
 OBSTACLES OVERCOME
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-wow we so BOSS bc...
+When implementing the betting option, we discovered two major problems. We found these while trying
+to debug a stack overflow error situation.
+
+The first was that we forgot one line of code in removeFromDeck(). We only removed a card from the Stack
+and not the ArrayList. The consequence was that, as the bots played, aDeck would grow infinitely large.
+
+The second was that the bots would never finish the game. We had a proper base case, so we were confused
+for a while. Players could win, but bots couldn't. The bug ended up being a typo in the go() method for Bot.
+This meant that a bot could never play their last card, and thus never win.
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -42,7 +50,9 @@ Making textboxes in Processing
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-we changed ___ to ___ bc...
+We originally made the game so that it could be played in the terminal. In the later stages,
+when we decided we were satisfied with how the game worked in terminal, we decided to
+try transferring over to Processing.
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
