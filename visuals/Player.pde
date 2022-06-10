@@ -1,5 +1,6 @@
 import java.util.ArrayList;
-class Player {
+
+public class Player {
 
   protected Player nextPlayer;
   protected Player prevPlayer;
@@ -7,12 +8,18 @@ class Player {
   protected String _name;
   protected boolean won;
 
-  public Player(String name) {
+  public Player(String name){
     _name = name;
     hand = new ArrayList<Card>();
   }
 
-  public void setName(String name) {
+  void displayHand(){
+    for(int i = 0; i<hand.size(); i++){
+      image((hand.get(i)).getVisual(),200 + i * (100/(hand.size())), 700);
+    }
+  }
+  
+  public void setName(String name){
     _name = name;
   }
 
@@ -20,7 +27,7 @@ class Player {
     return false;
   }
 
-  public String getName() {
+  public String getName(){
     return _name;
   }
 
@@ -43,7 +50,8 @@ class Player {
   public Player nextInLine(int direction) {
     if (direction == 0) {
       return getNext();
-    } else {
+    }
+    else {
       return getPrev();
     }
   }
@@ -55,9 +63,9 @@ class Player {
 
     Card boopyboop = hand.get(chosen);
     if (boopyboop.getColor().equals(top.getColor())
-      || boopyboop.getNumberOrSpecialty().equals(top.getNumberOrSpecialty())
-      || boopyboop.getColor().equals(top.getSecondary())
-      || boopyboop.isWild()) {
+    || boopyboop.getNumberOrSpecialty().equals(top.getNumberOrSpecialty())
+    || boopyboop.getColor().equals(top.getSecondary())
+    || boopyboop.isWild()) {
       return true;
     }
     return false;
@@ -67,29 +75,30 @@ class Player {
     if (chosen == hand.size()) {
       return false; // no cards to place
     }
-
     Card boopyboop = hand.get(chosen);
 
-    if (boopyboop.getNumberOrSpecialty().equals("+4")) { //if chosen is +4 it can always be played
+    if(boopyboop.getNumberOrSpecialty().equals("+4")){ //if chosen is +4 it can always be played
       return true;
-    } else if (boopyboop.getNumberOrSpecialty().equals("+2")) {
-      if (top.getNumberOrSpecialty().equals("+2")) {
+    }
+    else if(boopyboop.getNumberOrSpecialty().equals("+2")){
+      if(top.getNumberOrSpecialty().equals("+2")){
         return true; //if both chosen and top are +2, valid
-      } else if (top.isWild() && top.getSecondary().equals(boopyboop.getColor())) { //if secondary of top same color as chosen
+      }
+      else if(top.isWild() && top.getSecondary().equals(boopyboop.getColor())){ //if secondary of top same color as chosen
         return true;
       }
     }
     return false;
   }
 
-  public boolean wonOrNot() {
-    if (hand.size() == 0) {
+  public boolean wonOrNot(){
+    if(hand.size() == 0){
       return true;
     }
     return false;
   }
 
-  public Card removeCard(int removezies) {
+  public Card removeCard(int removezies){
     return hand.remove(removezies);
   }
 
@@ -107,6 +116,7 @@ class Player {
   }
 
   public void setSecondary(Card wild) {
+
   }
 
   public int go(Card top) {
@@ -118,20 +128,14 @@ class Player {
   }
 
   public void uno(Deck aDeck) {
+
   }
 
   public void unoOut(Deck aDeck) {
+
   }
 
   public int respondToAdding(Card top) {
     return -1;
   }
-
-  //public static void main(String[] args) {
-  //  Player jefferyiseatingagranolabar = new Player("Jeffery");
-  //  Card granolabar = new Card(1,2);
-  //  System.out.println(granolabar);
-  //  jefferyiseatingagranolabar.draw(granolabar);
-  //  System.out.println(jefferyiseatingagranolabar);
-  //}
 }

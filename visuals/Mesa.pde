@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Stack;
 import java.util.Scanner;
 
-public class Table {
+public class Mesa {
   private Stack<Card> placed = new Stack<Card>();
   private Deck aDeck = new Deck();
   private int direction = 0;
@@ -24,7 +24,7 @@ public class Table {
   public int ctr = 0;
 
 
-  public Table (Player p1, Player p2, Player p3, Player p4) {
+  public Mesa (Player p1, Player p2, Player p3, Player p4) {
 
     p1.setNext(p2);
     p2.setNext(p3);
@@ -38,9 +38,10 @@ public class Table {
   }
 
   public void go(){
-    System.out.println("Topmost Card : " + top + "\n");
+    image(back,0,0);
     if (current.isHuman()) {
-      System.out.println(current);    //cards player has
+      image(top.getVisual(), 300, 400);
+      //text(current, 0, 500);    //cards player has
     }
 
     // if (ctr == 10) {             //for testing purposes porque idkidkdikdikdifdididididodsh
@@ -48,13 +49,13 @@ public class Table {
     // }
     // ctr++;
 
-    System.out.println(current.getName() + " has " + current.getHandSize() + " card(s)");
-
+    //System.out.println(current.getName() + ": " + current.getHandSize() + "placed size: " + placed.size());
+    //System.out.println("deck size: " + aDeck.getSize());
     if (isStacking == true) { // first check if we're in stacking... 'mode'
       int placingCard = current.respondToAdding(top);
       if (placingCard != -1) { //if a valid card was chosen
         placeCard(placingCard);
-        System.out.println(current.getName() + " adds another card onto the stack");
+        text(current.getName() + " adds another card onto the stack", 0, 500);
 
         if (top.getNumberOrSpecialty().equals("+2")) {
           stack_size += 2;
@@ -62,8 +63,7 @@ public class Table {
         else {
           stack_size += 4;
         }
-        System.out.println("Current stack size : " + stack_size);
-        current.uno();
+        text("Current stack size : " + stack_size, 0, 500);
         current = current.nextInLine(direction);
 
         go();
@@ -71,7 +71,7 @@ public class Table {
       else {
         isStacking = false;
 
-        System.out.println(CYAN + "The stack ended! " + current.getName() + " must draw " + stack_size + " cards!" + RESET);
+        text(CYAN + "The stack ended! " + current.getName() + " must draw " + stack_size + " cards!" + RESET, 0, 500);
         aDeck.replenish(placed);
         drawCurrent(stack_size);
         stack_size = 0;
@@ -87,7 +87,7 @@ public class Table {
         aDeck.replenish(placed);
         current.draw(aDeck.removeFromDeck());
         current.draw(aDeck.removeFromDeck());
-        System.out.println(current.getName() + " decided to draw two cards\n----------------------------------------------\n");
+        text(current.getName() + " decided to draw two cards\n----------------------------------------------\n", 0, 500);
         current = current.nextInLine(direction);
         go();
       }
@@ -100,7 +100,7 @@ public class Table {
         go();
       }
       else{
-        System.out.println("Pick a valid card or else you will be punched by the extremely non violent peace advocates");
+        text("Pick a valid card or else you will be punched by the extremely non violent peace advocates", 0, 500);
         go();
 
       }
@@ -127,7 +127,7 @@ public class Table {
   }
 
   public void processCard(){
-    System.out.println(current.getName() + " placed a " + top + "\n----------------------------------------------");
+    text(current.getName() + " placed a " + top + "\n----------------------------------------------", 0, 500);
     current.uno(aDeck);
     if (current.wonOrNot()) {
       winner = current;

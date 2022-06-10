@@ -63,7 +63,9 @@ public class Bot extends Player{
   public int respondToAdding(Card top) {
     for (int i = 1; i < hand.size(); i++) {
       if (validateTwo(i, top)) {
-        setSecondary(top);
+        if (hand.get(i).isWild()) {
+            setSecondary(top);
+        }
         return i;
       }
     }

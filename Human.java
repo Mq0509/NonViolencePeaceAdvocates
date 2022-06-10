@@ -67,7 +67,9 @@ public class Human extends Player {
     System.out.println("\u001B[35m" + "Choose a card to stack on, or draw cards" + "\u001B[0m"); //purple + msg + reset
     int index = whatCard.nextInt();
     if (validateTwo(index, top)) {
-      setSecondary(hand.get(index));
+      if (hand.get(index).isWild()) {
+        setSecondary(hand.get(index));
+      }
       return index;
     }
     return -1;

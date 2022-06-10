@@ -42,11 +42,32 @@ public class Human extends Player {
     return placingCard;
   }
 
+  public boolean validateTwo(int chosen, Card top) {
+    if (chosen == hand.size()) {
+      return false; // no cards to place
+    }
+    Card boopyboop = hand.get(chosen);
+
+    if(boopyboop.getNumberOrSpecialty().equals("+4")){ //if chosen is +4 it can always be played
+      return true;
+    }
+    else if(boopyboop.getNumberOrSpecialty().equals("+2")){
+      if(top.getNumberOrSpecialty().equals("+2")){
+        return true; //if both chosen and top are +2, valid
+      }
+      else if(top.isWild() && top.getSecondary().equals(boopyboop.getColor())){ //if secondary of top same color as chosen
+        return true;
+      }
+    }
+    return false;
+  }
+
   public int respondToAdding(Card top) {
     Scanner whatCard = new Scanner(System.in);
     System.out.println("\u001B[35m" + "Choose a card to stack on, or draw cards" + "\u001B[0m"); //purple + msg + reset
     int index = whatCard.nextInt();
     if (validateTwo(index, top)) {
+      setSecondary(hand.get(index));
       return index;
     }
     return -1;
