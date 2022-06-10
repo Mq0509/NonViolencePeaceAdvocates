@@ -63,7 +63,7 @@ public class Table {
           stack_size += 4;
         }
         System.out.println("Current stack size : " + stack_size);
-        current.uno();
+        current.uno(aDeck);
         current = current.nextInLine(direction);
 
         go();
