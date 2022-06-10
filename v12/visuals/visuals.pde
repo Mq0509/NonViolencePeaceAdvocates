@@ -166,11 +166,11 @@ void draw() {
     fill(255);
     rect(width/2 - 250, height/2 - 50, 500, 100);
     fill(0);
-    text(name, width/2 - 250, height/2 - 100);
+    text(name, width/2 - 220, height/2 + 20);
     fill(255, 26, 26);
     rect(width/2 - 250, height/2 + 175, 500, 100);
     fill(10, 0, 0);
-    text("NEXT", width/2 - 250, height/2 + 175);
+    text("NEXT", width/2 - 55, height/2 + 245);
   }
    else if (screen == 3) {
     font = createFont("Karumbi", 128);
@@ -200,9 +200,7 @@ void draw() {
     print("1");
   }
   else if(screen == 4){
-      print("1");
       background(0);
-      image(back,0,0);
       if (ran == false) {
       Player p1 = new Human(name);
       Player p2 = new Bot("Kenny");
@@ -212,7 +210,6 @@ void draw() {
       newGame.placeFirst();
       newGame.distribute();
       newGame.go();
-      
       ran = true;
     }
     

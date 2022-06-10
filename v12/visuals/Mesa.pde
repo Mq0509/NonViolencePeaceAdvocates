@@ -38,6 +38,7 @@ public class Mesa {
   }
 
   public void go(){
+    image(back,0,0);
     if (current.isHuman()) {
       image(top.getVisual(), 300, 400);
       //text(current, 0, 500);    //cards player has
