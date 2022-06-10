@@ -6,25 +6,6 @@ pd 6
 ---------------------
 <UNO>
 
-
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-USAGE:
-* Replace all fields, angle brackets included, with specified info.
-  eg, pd <pd#> --> pd 3
-* Delete this instruction block once all teammates understand usage.
-
-devlog--
-Use keyboard shortcut to jump to end,
- replicate entry template,
- modify appropriately.
-
-zone of reflection--
-Flesh out each category whenever necessary, appropriate.
- Need not be fully filled in until end of project,
- but best done as you go along.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
 /////////// Zone of Reflection \\\\\\\\\\\
 ------------------------------------------
 OBSTACLES OVERCOME
@@ -41,12 +22,13 @@ This meant that a bot could never play their last card, and thus never win.
 
 UNRESOLVED ISSUES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-blah blah pesky bug...
-maybe some of these will move into the Obs.Ovrcm section...
+Processing is incomplete. We were unable to use the go() method we coded in the Table/Mesa class because it uses recursion.
 
 COOL STUFF LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Making textboxes in Processing
+Making textboxes in Processing using buttons and keyPressed()
+Setting images as background in Processing
+Making buttons in Processing to move between screens
 
 MID-DEVELOPMENT DESIGN CHANGES
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -56,7 +38,8 @@ try transferring over to Processing.
 
 LESSONS LEARNED
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-tales of wisdom gained...
+System.out.println() is very important to find where errors are
+Planning around events like tests and days off as well as knowing what we are capable of implementing in the time we have are crucial to completing on time.
 ||||||||||||||||||||||||||||||||||||||||||
 
 
@@ -194,6 +177,8 @@ Xinqing Lin :: Updated propro.pdf and got started on fixing flowchart.pdf
 
 2022-06-08 1:30 PM
 --------------------------------------------------------------
+Jeffery Tang :: Worked on adding uno cards into the files and tried to move on to the actual playing stages in processing
+May Qiu :: Worked on adding uno cards into the files and tried to move on to the actual playing stages in processing
 Xinqing Lin :: Fixed flowchart.pdf
                Change Bot.java so that they choose the secondary of wild cards based off their hand
 ==============================================================
